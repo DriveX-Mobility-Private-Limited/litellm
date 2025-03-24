@@ -120,7 +120,7 @@ autoscaling:
 
 primary:
   persistence:
-    size: "8Gi"
+    size: "50Gi"
     storageClass: "gp2"
     
 # Additional volumes on the output Deployment definition.
