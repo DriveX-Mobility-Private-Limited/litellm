@@ -18,7 +18,7 @@ fullnameOverride: ""
 
 serviceAccount:
   # Specifies whether a service account should be created
-  create: false
+  create: true
   # Automatically mount a ServiceAccount's API credentials?
   automount: true
   # Annotations to add to the service account
@@ -117,7 +117,7 @@ autoscaling:
   maxReplicas: 100
   targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80
-
+    
 # Additional volumes on the output Deployment definition.
 volumes: []
 # - name: foo
@@ -165,6 +165,10 @@ db:
 postgresql:
   architecture: standalone
   auth:
+    existingSecret: "litellm-postgresql-credentials"
+    secretKeys:
+        adminPasswordKey: POSTGRES_POSTGRES_PASSWORD
+        userPasswordKey: POSTGRES_PASSWORD
     username: litellm
     database: litellm
 
@@ -172,6 +176,13 @@ postgresql:
     #  `--set postgresql.auth.postgres-password=<some good password>,postgresql.auth.password=<some good password>`
     password: NoTaGrEaTpAsSwOrD
     postgres-password: NoTaGrEaTpAsSwOrD
+primary:
+  persistence:
+    enabled: true
+    size: 50Gi
+    storageClass: gp2
+    selector: {}
+  extraEnvVarsCM: "litellm-dev-config"   
 
     # A secret is created by this chart (litellm-helm) with the credentials that
     #  the new Postgres instance should use.
@@ -199,5 +210,3 @@ migrationJob:
 envVars: {
     # USE_DDTRACE: "true"
 }
-
-
