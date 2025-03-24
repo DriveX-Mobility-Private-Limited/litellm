@@ -117,13 +117,6 @@ autoscaling:
   maxReplicas: 100
   targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80
-
-primary:
-  persistence:
-    enabled: true
-    size: 50Gi
-    storageClass: gp2
-    selector: {}
     
 # Additional volumes on the output Deployment definition.
 volumes: []
@@ -172,6 +165,10 @@ db:
 postgresql:
   architecture: standalone
   auth:
+    existingSecret: "litellm-postgresql-credentials"
+    secretKeys:
+        adminPasswordKey: POSTGRES_POSTGRES_PASSWORD
+        userPasswordKey: POSTGRES_PASSWORD
     username: litellm
     database: litellm
 
@@ -179,6 +176,13 @@ postgresql:
     #  `--set postgresql.auth.postgres-password=<some good password>,postgresql.auth.password=<some good password>`
     password: NoTaGrEaTpAsSwOrD
     postgres-password: NoTaGrEaTpAsSwOrD
+primary:
+  persistence:
+    enabled: true
+    size: 50Gi
+    storageClass: gp2
+    selector: {}
+  extraEnvVarsCM: "litellm-dev-config"   
 
     # A secret is created by this chart (litellm-helm) with the credentials that
     #  the new Postgres instance should use.
