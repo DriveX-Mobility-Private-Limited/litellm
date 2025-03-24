@@ -123,6 +123,7 @@ primary:
     enabled: true
     size: 50Gi
     storageClass: gp2
+    selector: {}
     
 # Additional volumes on the output Deployment definition.
 volumes: []
