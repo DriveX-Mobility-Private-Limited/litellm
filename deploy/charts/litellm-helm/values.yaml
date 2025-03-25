@@ -99,6 +99,7 @@ proxy_config:
         api_key: fake-key
         api_base: https://exampleopenaiendpoint-production.up.railway.app/
   general_settings:
+    analytics: true
     master_key: os.environ/PROXY_MASTER_KEY
     admin_ui:
       username: os.environ/UI_USERNAME
