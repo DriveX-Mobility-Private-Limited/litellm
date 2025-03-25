@@ -178,7 +178,7 @@ db:
 postgresql:
   architecture: standalone
   auth:
-    existingSecret: "litellm-postgresql-credentials"
+    existingSecret: "litellm-postgresql-credentials-prod"
     secretKeys:
       adminPasswordKey: POSTGRES_POSTGRES_PASSWORD
       userPasswordKey: POSTGRES_PASSWORD
