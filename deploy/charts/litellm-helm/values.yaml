@@ -135,10 +135,19 @@ volumeMounts: []
 #   mountPath: "/etc/foo"
 #   readOnly: true
 
-nodeSelector: {}
+nodeSelector:
+  if-vision-pod: "true"
 
-tolerations: []
-
+tolerations:
+  - key: "if-monitoring-pod"
+    operator: "Equal"
+    value: "true"
+    effect: "NoSchedule"
+  - key: "if-vision-pod"
+    operator: "Equal"
+    value: "true"
+    effect: "NoSchedule"
+    
 affinity: {}
 
 db:
