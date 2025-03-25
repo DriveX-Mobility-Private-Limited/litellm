@@ -162,6 +162,8 @@ db:
     name: postgres
     usernameKey: username
     passwordKey: password
+    password: tPrGOgQdkzwpHAKeJDQj
+    postgres-password: 5Mxn4BGmbflgtRCT9bKH
 
   # Use the Stackgres Helm chart to deploy an instance of a Stackgres cluster.
   #  The Stackgres Operator must already be installed within the target
