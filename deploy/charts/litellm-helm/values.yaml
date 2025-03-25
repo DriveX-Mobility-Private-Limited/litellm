@@ -219,12 +219,7 @@ migrationJob:
   disableSchemaUpdate: false # Skip schema migrations for specific environments. When True, the job will exit with code 0.
   annotations: {}
   ttlSecondsAfterFinished: 120
-  env:
-    - name: DATABASE_URL
-      valueFrom:
-        secretKeyRef:
-          name: litellm-postgresql-credentials-prod
-          key: DATABASE_URL
+  
 # Additional environment variables to be added to the deployment
 envVars: {
     # USE_DDTRACE: "true"
