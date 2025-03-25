@@ -182,8 +182,8 @@ postgresql:
     secretKeys:
       adminPasswordKey: POSTGRES_POSTGRES_PASSWORD
       userPasswordKey: POSTGRES_PASSWORD
-    username: POSTGRES_USER
-    database: POSTGRES_DATABASE
+      usernameKey: POSTGRES_USER
+      databaseKey: POSTGRES_DATABASE
   primary:
     persistence:
       enabled: true
