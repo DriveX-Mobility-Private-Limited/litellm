@@ -154,14 +154,14 @@ db:
   # Use an existing postgres server/cluster
   useExisting: false
 
-  # How to connect to the existing postgres server/cluster
-  # endpoint: localhost
-  # database: litellm
-  # url: postgresql://$(DATABASE_USERNAME):$(DATABASE_PASSWORD)@$(DATABASE_HOST)/$(DATABASE_NAME)
-  # secret:
-  #   name: postgres
-  #   usernameKey: username
-  #   passwordKey: password
+  How to connect to the existing postgres server/cluster
+  endpoint: localhost
+  database: litellm
+  url: postgresql://$(DATABASE_USERNAME):$(DATABASE_PASSWORD)@$(DATABASE_HOST)/$(DATABASE_NAME)
+  secret:
+    name: postgres
+    usernameKey: username
+    passwordKey: password
 
   # Use the Stackgres Helm chart to deploy an instance of a Stackgres cluster.
   #  The Stackgres Operator must already be installed within the target
