@@ -184,12 +184,12 @@ postgresql:
       userPasswordKey: POSTGRES_PASSWORD
     username: POSTGRES_USER
     database: POSTGRES_DATABASE
-primary:
-  persistence:
-    enabled: true
-    size: 50Gi
-    storageClass: gp2
-    selector: {}
+  primary:
+    persistence:
+      enabled: true
+      size: 50Gi
+      storageClass: gp2
+      selector: {}
   extraEnvVarsCM: "litellm-prod-config"   
     # You should override these on the helm command line with
     #  `--set postgresql.auth.postgres-password=<some good password>,postgresql.auth.password=<some good password>`
