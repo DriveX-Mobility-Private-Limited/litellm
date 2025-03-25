@@ -103,17 +103,17 @@ proxy_config:
       username: os.environ/UI_USERNAME
       password: os.environ/UI_PASSWORD
 
-resources:
+resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  limits:
-    cpu: 100m
-    memory: 128Mi
-  requests:
-    cpu: 100m
-    memory: 128Mi
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
 
 autoscaling:
   enabled: false
@@ -219,12 +219,6 @@ migrationJob:
   disableSchemaUpdate: false # Skip schema migrations for specific environments. When True, the job will exit with code 0.
   annotations: {}
   ttlSecondsAfterFinished: 120
-  env:
-    - name: DATABASE_URL
-      valueFrom:
-        secretKeyRef:
-          name: litellm-postgresql-credentials-prod
-          key: DATABASE_URL
 
 # Additional environment variables to be added to the deployment
 envVars: {
