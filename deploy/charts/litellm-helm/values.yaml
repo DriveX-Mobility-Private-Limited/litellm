@@ -157,11 +157,12 @@ db:
  # How to connect to the existing postgres server/cluster
   endpoint: litellm-prod-postgresql
   database: litellm
-  url: postgresql://$(DATABASE_USERNAME):$(DATABASE_PASSWORD)@$(DATABASE_HOST)/$(DATABASE_NAME)
+  # url: postgresql://$(DATABASE_USERNAME):$(DATABASE_PASSWORD)@$(DATABASE_HOST)/$(DATABASE_NAME)
   secret:
     name: litellm-postgresql-credentials-prod
     usernameKey: POSTGRES_USER
     passwordKey: POSTGRES_PASSWORD
+    urlKey: DATABASE_URL
 
   # Use the Stackgres Helm chart to deploy an instance of a Stackgres cluster.
   #  The Stackgres Operator must already be installed within the target
