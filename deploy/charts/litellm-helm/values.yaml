@@ -152,7 +152,7 @@ affinity: {}
 
 db:
   # Use an existing postgres server/cluster
-  useExisting: true
+  useExisting: false
 
  # How to connect to the existing postgres server/cluster
   endpoint: litellm-prod-postgresql
