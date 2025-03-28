@@ -176,6 +176,18 @@ db:
 # Settings for Bitnami postgresql chart (if db.deployStandalone is true, ignored
 #  otherwise)
 postgresql:
+  primary:
+    nodeSelector:
+      if-vision-pod: "true"
+    tolerations:
+      - key: "if-monitoring-pod"
+        operator: "Equal"
+        value: "true"
+        effect: "NoSchedule"
+      - key: "if-vision-pod"
+        operator: "Equal"
+        value: "true"
+        effect: "NoSchedule"
   architecture: standalone
   auth:
     username: litellm
