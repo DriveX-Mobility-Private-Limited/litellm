@@ -245,16 +245,3 @@ migrationJob:
 envVars: {
     # USE_DDTRACE: "true"
 }
-global:
-  nodeSelector:
-    if-llm-workload: "true"
-  tolerations:
-    - key: "if-monitoring-pod"
-      operator: "Equal"
-      value: "true"
-      effect: "NoSchedule"
-    - key: "if-llm-workload"
-      operator: "Equal"
-      value: "true"
-      effect: "NoSchedule"
-
